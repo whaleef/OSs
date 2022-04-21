@@ -1,0 +1,34 @@
+# How to find operrating system in your computer
+# using through PyWMI
+
+from tkinter import *
+# pip install wmi
+import wmi
+root = Tk()
+root.geometry("500x500")
+root.title("Learn to Code ")
+
+def callback():
+  c = wmi.WMI()
+  for os in c.Win32_OperatingSystem():
+    txt =  (os.Caption)
+
+    Label(root, text = txt, font  = ("arial", 25, "bold"), fg = "teal").pack()
+
+def Read_more():
+  Label(root, text = "http://timgolden.me.uk/python/wmi/tutorial.html", font  = ("arial", 15, "bold"), fg = "blue").pack()
+
+Call_btn = Button(root, width = 20,text = " Get my OSs", bd = 5, command = callback).pack(side = BOTTOM)
+Call_btn1 = Button(root, width = 20,text = " Read More", bd = 5, command = Read_more).pack(side = BOTTOM)
+
+root.mainloop()
+
+
+
+
+
+
+
+
+
+
